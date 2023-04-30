@@ -1,17 +1,18 @@
 [package]
-name = "{{project-name}}"
+name = "arduino_shades"
 version = "0.1.0"
-authors = ["{{authors}}"]
+authors = ["bakeraugust"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [[bin]]
-name = "{{project-name}}"
+name = "arduino_shades"
 test = false
 bench = false
 
 [dependencies]
 panic-halt = "0.2.0"
+panic-persist = "0.2.0"
 ufmt = "0.1.0"
 nb = "0.1.2"
 embedded-hal = "0.2.3"
@@ -19,28 +20,7 @@ embedded-hal = "0.2.3"
 [dependencies.arduino-hal]
 git = "https://github.com/rahix/avr-hal"
 rev = "4c9c44c314eb061ee20556ef10d45dea36e75ee4"
-{% case board -%}
-  {%- when "Adafruit Trinket" -%}
-    features = ["trinket"]
-  {%- when "Adafruit Trinket Pro" -%}
-    features = ["trinket-pro"]
-  {%- when "Arduino Leonardo" -%}
-    features = ["arduino-leonardo"]
-  {%- when "Arduino Mega 2560" -%}
-    features = ["arduino-mega2560"]
-  {%- when "Arduino Mega 1280" -%}
-    features = ["arduino-mega1280"]
-  {%- when "Arduino Nano" -%}
-    features = ["arduino-nano"]
-  {%- when "Arduino Nano New Bootloader" -%}
-    features = ["arduino-nano"]
-  {%- when "Arduino Uno" -%}
-    features = ["arduino-uno"]
-  {%- when "SparkFun ProMicro" -%}
-    features = ["sparkfun-promicro"]
-  {%- when "Nano168" -%}
-    features = ["nano168"]
-{%- endcase %}
+features = ["arduino-nano"]
 
 # Configure the build for minimal size - AVRs have very little program memory
 [profile.dev]
@@ -54,6 +34,4 @@ codegen-units = 1
 debug = true
 lto = true
 opt-level = "s"
-{%- comment %}
 # vim: ft=toml.jinja2
-{% endcomment %}

@@ -1,44 +1,22 @@
-`avr-hal-template`
+`arduino-shades`
 ==================
-[`cargo-generate`] template for jumpstarting projects on common AVR
-microcontroller boards.  This template supports the following hardware at this
-time:
+A small program that controls automated window shades 😎. 
 
- - Arduino Leonardo
- - Arduino Mega 2560
- - Arduino Mega 1280
- - Arduino Nano
- - Arduino Nano New Bootloader (Manufactured after January 2018)
- - Arduino Uno
- - SparkFun ProMicro
- - Adafruit Trinket
- - Adafruit Trinket Pro
 
 ## Usage
-If you don't have them already, install [`cargo-generate`] and [`ravedude`]:
+1. Download [ravedude](https://github.com/Rahix/avr-hal/tree/next/ravedude)
+2. Plug the arduino board into your usb. 
+3. Find the board by running `ls -a /dev/`, it should be `/dev/tty.usbserial-110` or `/dev/tty.usbserial-10`.
+4. Tell revedude wwhere to find your board
 
 ```bash
-cargo install cargo-generate
-cargo install ravedude
+export RAVEDUDE_PORT=/dev/tty.usbserial-110
 ```
 
-Then instanciate this template:
+5. cargo run
 
-```bash
-cargo generate --git https://github.com/Rahix/avr-hal-template.git
-```
-
-You will be prompted to select your board - do so and you're ready to roll!
-Everything is prepared so you should be able to just
-
-```bash
-cargo run
-```
-
-and see a blinky flashed to your board!
-
-[`cargo-generate`]: https://github.com/cargo-generate/cargo-generate
-[`ravedude`]: https://github.com/Rahix/avr-hal/tree/next/ravedude
+## Credit
+Generated using [avr-hal-template](https://github.com/Rahix/avr-hal-template)
 
 ## License
 Licensed under either of
